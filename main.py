@@ -1,31 +1,30 @@
 import sqlite3
 import pandas as pd
 
-
-def extractRows(
-    data_frame: pd.DataFrame, last_row: int, first_row: int = 0
-) -> pd.DataFrame:
-    """Extract the rows of a specified panda dataframe, from first_row to max_row
-
-    Args:
-        data_frame (pd.DataFrame): a panda data frame containing the datas
-        max_row (int): The index of the last row to be extracted
-        first_row (int, optional): The index of the first row to be extracted. Defaults to 0.
-
-    Returns:
-        pd.DataFrame: a panda data frame constituted by the extracted rows
-    """
-    return data_frame.filter(items=list(range(first_row, last_row)), axis="index")
-
-
 with sqlite3.connect("data/penguins.sqlite") as co:
+    # Create a panda data frame from a sql query on penguins.sqlite
     penguins_df = pd.read_sql_query("SELECT * FROM penguins", co)
-    # print(penguins_df.head())
+    nb_row_peng = penguins_df.shape[0]
 
     # DATA VISUALIZATION
-    peng_rows = extractRows(penguins_df, 8, 2)
-    print(peng_rows)
+    print(penguins_df.head())  # overview of the data frame
 
-    # TRANSFORM IN NUMERIC VALUES
-    bill_length = penguins_df.filter(items=["bill_length_mm"], axis="columns")
-    print(bill_length)
+    last_rows_peng = penguins_df[300:nb_row_peng]  # extracting some rows
+    bill_length = penguins_df.bill_length_mm  # extracting a column
+
+    # Extracting all rows refering to the Adelie Specie
+    adelies = penguins_df[penguins_df.species == "Adelie"]
+
+    # Extracting the body masses of females
+    female_body_mass = penguins_df[penguins_df.sex == "female"].body_mass_g
+
+    # Extracting flipper length superiour to 200 of every penguin catch in 2009
+    flip_lgt_2009 = penguins_df[penguins_df.year == 2009][
+        penguins_df.flipper_length_mm > 200
+    ]
+
+    # Uncomment to see the resulsts of the previous manipulation
+    # print(last_rows_peng)
+    # print(bill_length)
+    # print(adelies)
+    # print(female_body_mass)
