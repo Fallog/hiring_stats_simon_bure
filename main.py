@@ -1,6 +1,8 @@
 import sqlite3
 import pandas as pd
+import matplotlib.pyplot as plt
 from descritpion import freq_table
+from descritpion import histogram
 
 with sqlite3.connect("data/penguins.sqlite") as co:
     # Create a panda data frame from a sql query on penguins.sqlite
@@ -11,7 +13,7 @@ with sqlite3.connect("data/penguins.sqlite") as co:
     print(penguins_df.head())  # overview of the data frame
 
     last_rows_peng = penguins_df[300:nb_row_peng]  # extracting some rows
-    bill_length = penguins_df.bill_length_mm  # extracting a column
+    bill_length_df = penguins_df.bill_length_mm  # extracting a column
 
     # Extracting all rows refering to the Adelie Specie
     adelies = penguins_df[penguins_df.species == "Adelie"]
@@ -24,7 +26,11 @@ with sqlite3.connect("data/penguins.sqlite") as co:
         penguins_df.flipper_length_mm > 200
     ]
 
-    # Converting a column of
+    # Converting a numerical column of the data frame in a python numerical list
+    bill_length_l = penguins_df.bill_length_mm.to_list()
+    bill_depth_l = penguins_df.bill_depth_mm.to_list()
+    flipper_length_l = penguins_df.flipper_length_mm.to_list()
+    body_mass_l = penguins_df.body_mass_g.to_list()
 
     # UNCOMMENT THE FOLLOWING LINES TO SEE THE RESULT OF THE PREVIOUS MANIPULATIONS
     # print(last_rows_peng)
