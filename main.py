@@ -1,5 +1,6 @@
 import sqlite3
 import pandas as pd
+from descritpion import freq_table
 
 with sqlite3.connect("data/penguins.sqlite") as co:
     # Create a panda data frame from a sql query on penguins.sqlite
@@ -33,5 +34,9 @@ with sqlite3.connect("data/penguins.sqlite") as co:
     # print(flip_lgt_2009)
 
     # FREQUENCE TABLE
-    print(penguins_df.species.value_counts())
-    print(penguins_df.flipper_length_mm.value_counts())
+    print(penguins_df.columns)  # all existing columns of the penguins data frame
+    freq_table_l = []
+    for column in penguins_df.columns:
+        # Storing the frequence table of each column of the data frame in a list
+        freq_table_l.append(freq_table.createFreqTable(penguins_df, column))
+    print(freq_table_l[1])  # frequence table of the islands
