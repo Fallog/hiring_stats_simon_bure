@@ -1,0 +1,4 @@
+To improve this project, it could be possible to analyze the penguin data set and check if there is any difference between male and female caracteristics.
+For example, does male and female have the same body mass ? Building a plot answering to this question could be interesing. 
+To maintain code's quality, it is important to limit the activity of future's function to only one functionality. 
+Therefore, the code is easily reusable and understandable. 
