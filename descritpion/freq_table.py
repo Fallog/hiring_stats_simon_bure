@@ -22,4 +22,4 @@ if __name__ == "__main__":
     # UNIT TEST
     df = pd.DataFrame({"eyes": ["Bleu", "Vert", "Marron", "Bleu", "Bleu", "Marron"]})
     print(df)
-    print(createFreqTable(df, "eyes"))  # OK
+    print(createFreqTable(df, "eyes"))  # Function is working
