@@ -1,6 +1,5 @@
 import sqlite3
 import pandas as pd
-import matplotlib.pyplot as plt
 from descritpion import freq_table
 from descritpion import histogram
 
@@ -26,7 +25,7 @@ with sqlite3.connect("data/penguins.sqlite") as co:
         penguins_df.flipper_length_mm > 200
     ]
 
-    # Converting a numerical column of the data frame in a python numerical list
+    # Converting a column of the data frame in a python list
     bill_length_l = penguins_df.bill_length_mm.to_list()
     bill_depth_l = penguins_df.bill_depth_mm.to_list()
     flipper_length_l = penguins_df.flipper_length_mm.to_list()
@@ -40,9 +39,19 @@ with sqlite3.connect("data/penguins.sqlite") as co:
     # print(flip_lgt_2009)
 
     # FREQUENCE TABLE
-    print(penguins_df.columns)  # all existing columns of the penguins data frame
+    peng_col = penguins_df.columns  # all existing columns of the penguins data frame
+    print(peng_col)
     freq_table_l = []
     for column in penguins_df.columns:
         # Storing the frequence table of each column of the data frame in a list
         freq_table_l.append(freq_table.createFreqTable(penguins_df, column))
+    print(freq_table_l[0])  # frequence table of the species
     print(freq_table_l[1])  # frequence table of the islands
+    print(freq_table_l[6])  # frequence table of the sexes
+
+    # HISTOGRAMS
+    histogram.createHist(penguins_df.species.to_list(), peng_col[0])
+    histogram.createHist(bill_length_l, peng_col[2])
+    histogram.createHist(bill_depth_l, peng_col[3])
+    histogram.createHist(flipper_length_l, peng_col[4])
+    histogram.createHist(body_mass_l, peng_col[5])
