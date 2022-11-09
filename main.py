@@ -23,8 +23,15 @@ with sqlite3.connect("data/penguins.sqlite") as co:
         penguins_df.flipper_length_mm > 200
     ]
 
-    # Uncomment to see the resulsts of the previous manipulation
+    # Converting a column of
+
+    # UNCOMMENT THE FOLLOWING LINES TO SEE THE RESULT OF THE PREVIOUS MANIPULATIONS
     # print(last_rows_peng)
     # print(bill_length)
     # print(adelies)
     # print(female_body_mass)
+    # print(flip_lgt_2009)
+
+    # FREQUENCE TABLE
+    print(penguins_df.species.value_counts())
+    print(penguins_df.flipper_length_mm.value_counts())
