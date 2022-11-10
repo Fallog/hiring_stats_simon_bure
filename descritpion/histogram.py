@@ -19,6 +19,7 @@ def createHist(sequence: list, name: str):
     plt.show()  # display the histogram
 
 
+# The following lines are executed only if you run specifically histogram.py and are used to test the code above
 if __name__ == "__main__":
     df = pd.DataFrame(
         {

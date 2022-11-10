@@ -17,7 +17,7 @@ def createFreqTable(data_frame: pd.DataFrame, column: str) -> pd.DataFrame:
     return data_frame[column].value_counts()
 
 
-# The following lines are executed only if you run specifically freq_table.py
+# The following lines are executed only if you run specifically freq_table.py and are used to test the code above
 if __name__ == "__main__":
     # UNIT TEST
     df = pd.DataFrame({"eyes": ["Bleu", "Vert", "Marron", "Bleu", "Bleu", "Marron"]})

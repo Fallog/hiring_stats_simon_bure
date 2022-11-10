@@ -1,0 +1,4 @@
+This project use the well documented python packages pandas and matplotlib. 
+pandas is very useful in data science to manipulate, represent and display datas easily.
+matplotlib is a package made for data visualisation, create good-looking plots etc.
+In order to reuse this code, you will need pandas and matplotlib installed in your python environnment 
