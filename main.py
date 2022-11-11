@@ -142,7 +142,7 @@ with sqlite3.connect("data/penguins.sqlite") as co:
         getRowsWithModality(penguins_df, column="sex", modality="female"),
         names="body_mass_g",
     )
-    print(female_body_mass)
+    # print(female_body_mass)
 
     # Extracting flipper length superior to 200 of every penguin catch in 2009
     flip_lgt_2009 = penguins_df[penguins_df.year == 2009][
@@ -153,18 +153,8 @@ with sqlite3.connect("data/penguins.sqlite") as co:
     bill_length_l = transformColumnToList(penguins_df, "bill_length_mm")
     # print(bill_length_l)
 
-    # UNCOMMENT THE FOLLOWING LINES TO SEE THE RESULT OF THE PREVIOUS MANIPULATIONS
-    # print(last_rows_peng)
-    # print(bill_length)
-    # print(adelies)
-    # print(female_body_mass)
-    # print(flip_lgt_2009)
-
     # FREQUENCE TABLE
-    # freq_table_l = []
-    # for column in penguins_df.columns:
-    #    # Storing the frequence table of each column of the data frame in a list
-    #    freq_table_l.append(freq_table.createFreqTable(penguins_df, column))
+    freq_table_l = freq_table.createAllFreqTables(penguins_df)
     # print(freq_table_l[0])  # frequence table of the species
     # print(freq_table_l[1])  # frequence table of the islands
     # print(freq_table_l[6])  # frequence table of the sexes
