@@ -160,8 +160,4 @@ with sqlite3.connect("data/penguins.sqlite") as co:
     # print(freq_table_l[6])  # frequence table of the sexes
 
     # HISTOGRAMS
-    # histogram.createHist(penguins_df.species.to_list(), peng_col[0])
-    # histogram.createHist(bill_length_l, peng_col[2])
-    # histogram.createHist(bill_depth_l, peng_col[3])
-    # histogram.createHist(flipper_length_l, peng_col[4])
-    # histogram.createHist(body_mass_l, peng_col[5])
+    histogram.createHist(bill_length_l, col_names[2])
