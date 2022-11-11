@@ -8,7 +8,7 @@ def createFreqTable(data_frame: pd.DataFrame, column: str) -> pd.DataFrame:
     of this name/number.
 
     Args:
-        data_frame (pd.DataFrame): a panda data frame containing datas
+        data_frame (pd.DataFrame): a panda data frame
         column (str): Name of a column of the data frame
 
     Returns:
