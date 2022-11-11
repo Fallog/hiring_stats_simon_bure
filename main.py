@@ -144,12 +144,6 @@ with sqlite3.connect("data/penguins.sqlite") as co:
     )
     # print(female_body_mass)
 
-    # Extracting flipper length superior to 200 of every penguin catch in 2009
-    flip_lgt_2009 = penguins_df[penguins_df.year == 2009][
-        penguins_df.flipper_length_mm > 200
-    ]
-    # print(flip_lgt_2009)
-
     # Converting a column of the data frame in a python list
     bill_length_l = transformColumnToList(penguins_df, "bill_length_mm")
     # print(bill_length_l)

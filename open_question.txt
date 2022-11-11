@@ -1,4 +1,5 @@
 To improve this project, it could be possible to improve the function createAllFreqTables so it creates the frequency tables only for datas
-that are not numerical. A frequency table of numerical data is not interesing at all.
+that are not numerical. A frequency table of numerical data is not interesing at all. It could be interesing aswell to create a function similar to 
+getRowWithModality but for conditions on numerical datas (for example it will return a data frame of all the rows where flipper_length_mm > 200).  
 To maintain code's quality, it is important to limit the activity of future's function to only one functionality. 
 Therefore, the code is easily reusable and understandable. 
